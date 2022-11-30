@@ -1,0 +1,56 @@
+// ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ >> >
+// ┣─> Bots
+// ╰───────────────────────────────────── >> >
+
+@media screen and (max-width: 600px) {
+    .bots {
+        grid-template-columns: 1fr !important;
+        gap: 50px !important;
+    }
+}
+
+.bots {
+    width: 75%;
+    margin-top: 2.5em;
+    margin-bottom: 40px;
+
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: calc(33% - 5px) calc(33% - 5px) calc(33% - 5px);
+    gap: 10px;
+}
+
+.bot {
+    text-align: center;
+    color: rgba(var(--active-green));
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(var(--black)),
+                inset 0 0 15px rgba(var(--black));
+    height: 100%;
+    padding: 20px;
+    margin: 5px;
+    max-width: max-content;
+
+    font-size: 1.5em;
+
+    transition: .2s ease-in-out;
+
+    .bot-description {
+        color: rgba(var(--foreground));
+        margin-top: 1em;
+        font-size: 0.75em;
+        text-overflow: ellipsis;
+    }
+
+    &.invitable:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        background: rgba(var(--black), 0.55);
+    }
+}
+
+.botlink {
+    cursor: default;
+    text-decoration: none;
+}

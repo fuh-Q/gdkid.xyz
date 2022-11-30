@@ -1,0 +1,17 @@
+// ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ >> >
+// ┣─> Artwork
+// ╰───────────────────────────────────── >> >
+
+.art {
+    .timestamp { color: rgba(var(--active-green), 0.75);}
+
+    img[src] {
+        box-shadow: 0 0 15px black;
+        border-radius: 10px;
+    }
+
+    justify-self: center;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}

@@ -1,0 +1,42 @@
+// ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ >> >
+// ┣─> Notebook
+// ╰───────────────────────────────────── >> >
+
+.notes {
+    width: 100%;
+    margin-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.note {
+    .timestamp {
+        color: rgba(var(--active-green), 0.5);
+        margin-bottom: 15px;
+        font-size: 0.9em;
+        user-select: none;
+
+        .inline-note-id {
+            font-size: 0.75em;
+            margin-left: 12.5px;
+            position: relative;
+            color: white;
+            opacity: 0.25;
+        }
+    }
+
+    a[href] {
+        word-break: break-all;
+        color: rgba(var(--foreground));
+        &:active { color: rgba(var(--active-green), 0.5);}
+    }
+
+    word-break: normal;
+    padding-top: 10px;
+    padding-left: 2.75%;
+    padding-right: 2.75%;
+    margin-bottom: 25px;
+    font-size: 1.3em;
+    color: rgba(var(--foreground));
+}
