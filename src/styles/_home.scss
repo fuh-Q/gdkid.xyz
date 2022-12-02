@@ -2,17 +2,6 @@
 // ┣─> Homepage
 // ╰───────────────────────────────────── >> >
 
-.letter {
-    --colour: rgba(var(--black));
-    cursor: pointer;
-
-    &:hover { --colour: rgba(var(--pink), 0.5);}
-    &:active {
-        --colour: rgba(var(--active-green), 0.5);
-        transition: none;
-    }
-}
-
 .balls {
     gap: 40px;
     margin-top: -30px;
@@ -29,6 +18,9 @@
 }
 
 .letter {
+    --colour: rgba(var(--black));
+    cursor: pointer;
+
     max-width: max-content;
     align-self: center;
     font-size: 2em;
@@ -47,6 +39,8 @@
     }
 
     &:hover {
+        --colour: rgba(var(--pink), 0.5);
+
         color: rgba(var(--pink));
         transform: scale(1.08);
 
@@ -73,6 +67,9 @@
     }
 
     &:active {
+        --colour: rgba(var(--active-green), 0.5);
+        transition: none;
+
         color: rgba(var(--active-green));
 
         &::before,
