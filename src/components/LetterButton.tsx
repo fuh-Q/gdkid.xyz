@@ -20,11 +20,11 @@ export default function LetterButton({
 
     return (
         <Link href={redirect ?? "/"} target={newTab ? "_blank" : "_self"}>
-            <button
+            <div
                 className={`letter ${char.toLowerCase()}`}
                 {...extras}>
                 {char.toUpperCase()}
-            </button>
+            </div>
         </Link>
     );
 }
