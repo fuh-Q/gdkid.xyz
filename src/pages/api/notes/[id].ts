@@ -17,7 +17,7 @@ export default async function handler(
 
     const { id } = req.query;
     const noteId = Number.parseInt(id as string);
-    if (noteId === NaN) { return res.status(400).send("NaN"); }
+    if (isNaN(noteId)) { return res.status(400).send("NaN"); }
 
 	const data = await getNotes(noteId);
 	return res.status(200).json(data.rows[0] || {});
