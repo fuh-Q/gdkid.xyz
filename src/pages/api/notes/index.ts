@@ -1,13 +1,13 @@
-import type { RawNote } from "../../types/Note";
+import type { RawNote } from "../../../types/Note";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import LockoutLimiter from "../../utils/limiter";
+import LockoutLimiter from "../../../utils/limiter";
 
-import { Pool } from "pg";
+import { Pool, QueryResult } from "pg";
 import { config } from "dotenv";
 
 config();
-const pool = new Pool({
+export const pool = new Pool({
     connectionString: process.env.DB_URI,
     min: 0,
     max: 5,
@@ -15,11 +15,21 @@ const pool = new Pool({
     connectionTimeoutMillis: 5000,
 });
 
-const limiter = new LockoutLimiter({
+export const limiter = new LockoutLimiter({
 	rate: 3,
 	per: 2,
 	keyGen: (r: NextApiRequest) => r.socket.remoteAddress || "",
 })
+
+export async function getNotes(id?: number): Promise<QueryResult<RawNote>> {
+    const condition = id ? "WHERE id = $1" : "ORDER BY id DESC"
+    const query = `SELECT * FROM notes ${condition}`;
+    const conn = await pool.connect();
+    const data = await conn.query<RawNote>(query, id ? [id] : []);
+    conn.release();
+
+    return data;
+}
 
 export default async function handler(
 	req: NextApiRequest,
@@ -33,10 +43,6 @@ export default async function handler(
 		return res.status(405).send("method not allowed");
 	}
 
-	const query = `SELECT * FROM notes ORDER BY id DESC`;
-	const conn = await pool.connect();
-	const data = await conn.query<RawNote>(query);
-	conn.release();
-
+	const data = await getNotes();
 	return res.status(200).json(data.rows);
 }
