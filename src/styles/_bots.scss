@@ -25,6 +25,7 @@
     text-align: center;
     color: rgba(var(--active-green));
     border-radius: 10px;
+    background-color: rgba(var(--foreground), 0.035);
     box-shadow: 0 0 50px rgba(var(--black)),
                 inset 0 0 15px rgba(var(--black));
     height: 100%;
@@ -46,7 +47,7 @@
     &.invitable:hover {
         text-decoration: underline;
         cursor: pointer;
-        background: rgba(var(--black), 0.55);
+        background: transparent;
     }
 }
 
