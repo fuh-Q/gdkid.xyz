@@ -7,16 +7,16 @@
     margin-top: -30px;
     z-index: -1;
 
-    overflow: visible;
+    & > * { overflow: visible;}
 
     .l-blob {
         color: rgba(var(--active-green));
-        filter: drop-shadow(30px -15px 30px rgba(var(--active-green), 0.75));
+        filter: drop-shadow(30px -15px 30px rgba(var(--active-green)));
     }
 
     .r-blob {
         color: rgba(var(--pink));
-        filter: drop-shadow(-25px 25px 30px rgba(var(--pink), 0.85));
+        filter: drop-shadow(-25px 25px 30px rgba(var(--pink)));
     }
 }
 

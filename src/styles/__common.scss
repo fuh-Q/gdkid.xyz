@@ -71,10 +71,7 @@ p { margin: 0;}
         padding: 40px 20px 40px 20px;
         margin-top: 20px;
 
-        overflow: hidden;
-
         user-select: none;
-        text-overflow: ellipsis;
     }
 
     & + * { margin-top: 3em;}
