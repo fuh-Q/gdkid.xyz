@@ -7,7 +7,7 @@ import { Pool, QueryResult } from "pg";
 import { config } from "dotenv";
 
 config();
-export const pool = new Pool({
+const pool = new Pool({
     connectionString: process.env.DB_URI,
     min: 0,
     max: 5,
