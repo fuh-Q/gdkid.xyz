@@ -5,7 +5,9 @@ import formatDate from "../utils/time";
 
 export default function NoteItem({ id, timestamp, note }: Note) {
     const formatted = formatDate(timestamp);
-    const n = note.replaceAll("> -", "> —");
+    const n = note
+        .replaceAll("> -", "> —")
+        .replaceAll("\n\n", "\n\u200b\n");
 
     return (
         <>
