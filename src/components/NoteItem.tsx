@@ -1,13 +1,10 @@
 import type { Note } from "../types/Note";
-import { marked } from "marked";
+import { toHTML } from "discord-markdown";
 
 import formatDate from "../utils/time";
 
 export default function NoteItem({ id, timestamp, note }: Note) {
     const formatted = formatDate(timestamp);
-    const n = note
-        .replaceAll("> -", "> —")
-        .replaceAll("\n\n", "\n\u200b\n");
 
     return (
         <>
@@ -17,8 +14,8 @@ export default function NoteItem({ id, timestamp, note }: Note) {
                     {formatted}
                     <span className="inline-note-id"><i>{`# ${id}`}</i></span>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: marked(n, { breaks: true }) }}/>
+                <div dangerouslySetInnerHTML={{ __html: toHTML(note) }}/>
             </div>
         </>
-    )
+    );
 }
