@@ -5,7 +5,9 @@ import { MONTHS } from "../utils/time";
 
 export default function ArtItem({ date, description, links }: Artwork) {
     const formatted = `${MONTHS[date.getUTCMonth()]} ${date.getUTCDate()} ${date.getUTCFullYear()}`;
-    let n = description.replaceAll("> -", "> —");
+    let n = description
+        .replaceAll("> -", "> —")
+        .replaceAll("\n\n", "\n\u200b\n");
 
     description += "<br/>";
     links.map(link => n += `<br/><br/>![image](${link})`);
