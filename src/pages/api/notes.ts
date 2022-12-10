@@ -19,7 +19,7 @@ const limiter = new LockoutLimiter({
 	rate: 3,
 	per: 2,
 	keyGen: (r: NextApiRequest) => r.socket.remoteAddress || "",
-})
+});
 
 export default async function handler(
 	req: NextApiRequest,

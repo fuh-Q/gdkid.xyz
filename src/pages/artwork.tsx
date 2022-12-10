@@ -44,7 +44,7 @@ export default function Home({ items }: { items: RawArtwork[] }) {
 }
 
 export async function getStaticProps() {
-    const req = await fetch("http://localhost:3000/data/artwork.json")
+    const req = await fetch("http://localhost:3000/data/artwork.json");
     const items: RawArtwork[] = await req.json();
 
     return {
