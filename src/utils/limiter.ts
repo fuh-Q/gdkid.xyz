@@ -25,11 +25,10 @@ class Bucket {
         this._maxTokens = tokens;
     }
 
-    private _getTokenCount(): number {
+    private _getTokenCount(rn: Date): number {
         let tokens = this._tokenCount > 0 ? this._tokenCount : 0;
 
-        const rn = new Date();
-        if (rn.getTime() > this._window.getTime() + (this._per * 1000) && this._hasChilledOut()) {
+        if (rn.getTime() > this._window.getTime() + (this._per * 1000) && this._hasChilledOut(rn)) {
             tokens = this._maxTokens;
         }
 
@@ -37,10 +36,11 @@ class Bucket {
     }
 
     private _update(): void {
-        this._tokenCount--;
-        this._tokenCount = this._getTokenCount();
-
         const rn = new Date();
+
+        this._tokenCount--;
+        this._tokenCount = this._getTokenCount(rn);
+
         if (rn.getTime() - this._window.getTime() > (this._per * 1000)) {
             this._window = rn;
         }
@@ -48,12 +48,11 @@ class Bucket {
         this.last = rn;
     }
 
-    private _hasChilledOut(): boolean {
+    private _hasChilledOut(rn: Date): boolean {
         if (this._tokenCount > 0) {
             return true;
         }
 
-        const rn = new Date();
         return rn.getTime() - this.last.getTime() > (this._per * 1000);
     }
 
