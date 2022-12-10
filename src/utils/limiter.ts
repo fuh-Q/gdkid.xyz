@@ -25,14 +25,9 @@ class Bucket {
         this._maxTokens = tokens;
     }
 
-    private _getTokenCount(rn: Date): number {
-        let tokens = this._tokenCount > 0 ? this._tokenCount : 0;
-
-        if (rn.getTime() > this._window.getTime() + (this._per * 1000) && this._hasChilledOut(rn)) {
-            tokens = this._maxTokens;
-        }
-
-        return tokens;
+    isExhausted(): boolean {
+        this._update();
+        return this._tokenCount <= 0;
     }
 
     private _update(): void {
@@ -48,17 +43,22 @@ class Bucket {
         this.last = rn;
     }
 
+    private _getTokenCount(rn: Date): number {
+        let tokens = this._tokenCount > 0 ? this._tokenCount : 0;
+
+        if (rn.getTime() > this._window.getTime() + (this._per * 1000) && this._hasChilledOut(rn)) {
+            tokens = this._maxTokens;
+        }
+
+        return tokens;
+    }
+
     private _hasChilledOut(rn: Date): boolean {
         if (this._tokenCount > 0) {
             return true;
         }
 
         return rn.getTime() - this.last.getTime() > (this._per * 1000);
-    }
-
-    isExhausted(): boolean {
-        this._update();
-        return this._tokenCount <= 0;
     }
 }
 
@@ -76,6 +76,11 @@ export default class LockoutLimiter {
         this._mapping = {};
     }
 
+    isRateLimited(r: NextApiRequest): boolean {
+        const bucket = this.getBucket(r);
+        return bucket.isExhausted();
+    }
+
     getBucket(r: NextApiRequest): Bucket {
         const key = this._keyGen(r);
         if (!this._mapping[key]) {
@@ -90,10 +95,5 @@ export default class LockoutLimiter {
         }
 
         return this._mapping[key];
-    }
-
-    isRateLimited(r: NextApiRequest): boolean {
-        const bucket = this.getBucket(r);
-        return bucket.isExhausted();
     }
 }
