@@ -10,4 +10,3 @@ jobs:
       - uses: actions/checkout@v3
       - name: Acquire Checkmark
         run: echo "Checkmark acquired"
-
