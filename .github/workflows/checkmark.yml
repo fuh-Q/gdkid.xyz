@@ -8,4 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Acquire Checkmark
+      - uses: actions/checkout@v3
       - run: echo "Checkmark acquired"
