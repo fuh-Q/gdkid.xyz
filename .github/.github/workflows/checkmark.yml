@@ -1,0 +1,11 @@
+name: checkmark
+
+on: [push]
+
+jobs:
+  getCheckmark:
+    name: Obtain Checkmark
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd
