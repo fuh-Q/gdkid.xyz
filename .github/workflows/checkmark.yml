@@ -7,6 +7,6 @@ jobs:
     name: Obtain Checkmark
     runs-on: ubuntu-latest
     steps:
-      - name: Acquire Checkmark
       - uses: actions/checkout@v3
-      - run: echo "Checkmark acquired"
+      - name: Acquire Checkmark
+        run: echo "Checkmark acquired"
