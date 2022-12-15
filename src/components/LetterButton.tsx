@@ -1,5 +1,5 @@
+import type LetterProps from "../types/Letter";
 import Link from "next/link";
-import LetterProps from "../types/Letter";
 
 export default function LetterButton({
     full,

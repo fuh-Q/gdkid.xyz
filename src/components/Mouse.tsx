@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-import MouseProps from "../types/Mouse";
+import type MouseProps from "../types/Mouse";
 
 export default function Mouse({ delay = 0, n }: MouseProps) {
     const [ready, setReady] = useState(false);
@@ -38,7 +38,7 @@ export default function Mouse({ delay = 0, n }: MouseProps) {
         const onPointerMove = () => {
             if (
                 !shouldShowMouse &&
-                !window.matchMedia("only screen and (max-width: 760px)").matches
+                !window.matchMedia("only screen and (max-width: 750px)").matches
             ) {
                 setTimeout(() => setShowMouse(true), 69);
             }
@@ -53,10 +53,12 @@ export default function Mouse({ delay = 0, n }: MouseProps) {
 
     return ready ? createPortal(
         <div
-            ref={ref}
-            style={{opacity: shouldShowMouse ? 1 / n : 0}}
             className={`mouse m${n}`}
-            data-moveDelay={delay}/>,
+            ref={ref}
+            style={{
+                transform: `scale(${1.4 - n * 0.2})`,
+                opacity: shouldShowMouse ? 1 / n : 0,
+            }}/>,
         document.getElementById("customMouse") as HTMLDivElement
     ) : null;
 }

@@ -8,7 +8,7 @@ import Head from "next/head";
 
 import { v4 as uuidv4 } from "uuid";
 
-export default function Home({ items }: { items: RawArtwork[] }) {
+export default function ArtWork({ items }: { items: RawArtwork[] }) {
     const handleDescription = (d?: string | string[]): string => {
         const s = d ?? "";
         return typeof s === "string" ? s : s.join(" ");

@@ -2,6 +2,15 @@
 // ┣─> Notebook
 // ╰───────────────────────────────────── >> >
 
+@keyframes flash {
+    50% { background: rgba(var(--foreground), 0.3);}
+    to { background: transparent;}
+}
+
+.flash {
+    animation: flash 2s;
+}
+
 .notes {
     width: 100%;
     margin-bottom: 40px;

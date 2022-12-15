@@ -1,0 +1,52 @@
+// ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ >> >
+// ┣─> Cursor + Clicking
+// ╰───────────────────────────────────── >> >
+
+a { cursor: none;}
+
+#customMouse {
+    pointer-events: none;
+    position: absolute;
+    z-index: 100;
+
+    .mouse {
+        transition: opacity .25s ease-in-out;
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(white, rgba(var(--cursor-tint)) 69%);
+        border-radius: 20px;
+        z-index: -1;
+
+        &.m1 {
+            z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(var(--cursor-tint)));
+        }
+    }
+}
+
+#cpsContainer {
+    position: fixed;
+    left: 85%;
+    top: 5%;
+    max-height: max-content;
+    width: 100px;
+    user-select: none;
+    white-space: pre;
+    color: rgba(var(--foreground), 0.75);
+    background: rgba(var(--black));
+    padding: 15px;
+    border: 3px solid rgba(var(--green), 0.2);
+    border-radius: 10px;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+
+    &.inDisplay { opacity: 1;}
+    span {
+        font-size: 1.2em;
+        color: rgba(var(--green));
+    }
+
+    display: flex;
+    flex-direction: column;
+}

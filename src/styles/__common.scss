@@ -50,31 +50,6 @@ code {
 
 p { margin: 0;}
 
-a { cursor: none;}
-
-#customMouse {
-    pointer-events: none;
-    position: absolute;
-    z-index: 100;
-
-    .mouse {
-        transform: translate(-10px, -10px);
-        transition: opacity .25s ease-in-out;
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background: radial-gradient(white, rgba(var(--cursor-tint)) 69%);
-        border-radius: 20px;
-        z-index: -1;
-
-        &.m1 {
-            scale: 1.2;
-            z-index: 1;
-            filter: drop-shadow(0 0 10px rgba(var(--cursor-tint)));
-        }
-    }
-}
-
 .intro {
     display: flex;
     flex-wrap: wrap;
