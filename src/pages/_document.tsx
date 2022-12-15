@@ -14,6 +14,7 @@ export default function Document() {
                 <meta property="og:site_name" content="gdkid.xyz"/>
             </Head>
             <body>
+                <div id="customMouse"/>
                 <Main/>
                 <NextScript/>
             </body>

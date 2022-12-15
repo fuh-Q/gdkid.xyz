@@ -6,13 +6,18 @@
     --background-image: url('../../public/assets/lines.png');
 
     --pink: 255, 0, 255;
+    --aqua: 135, 255, 255;
     --black: 10, 10, 10;
-    --active-green: 180, 255, 0;
+    --green: 180, 255, 0;
+
+    --cursor-tint: var(--aqua);
 
     --foreground: 150, 150, 150;
 }
 
 html {
+    cursor: none;
+
     &::before {
         content: "";
         position: fixed;
@@ -44,6 +49,31 @@ code {
 }
 
 p { margin: 0;}
+
+a { cursor: none;}
+
+#customMouse {
+    pointer-events: none;
+    position: absolute;
+    z-index: 100;
+
+    .mouse {
+        transform: translate(-10px, -10px);
+        transition: opacity .25s ease-in-out;
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(white, rgba(var(--cursor-tint)) 69%);
+        border-radius: 20px;
+        z-index: -1;
+
+        &.m1 {
+            scale: 1.2;
+            z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(var(--cursor-tint)));
+        }
+    }
+}
 
 .intro {
     display: flex;
@@ -81,9 +111,9 @@ p { margin: 0;}
     top: 20px;
 
     &:hover svg {
-        cursor: pointer;
-        filter: drop-shadow(0 0 6px rgba(var(--active-green)));
-        stroke: rgba(var(--active-green), 0.65);
+        // cursor: pointer;
+        filter: drop-shadow(0 0 6px rgba(var(--green)));
+        stroke: rgba(var(--green), 0.65);
     }
 }
 
@@ -101,9 +131,9 @@ p { margin: 0;}
     color: rgba(var(--foreground), 0.75);
 
     &:hover {
-        cursor: pointer;
-        filter: drop-shadow(0 0 4px rgba(var(--active-green), 0.4));
-        color: rgba(var(--active-green), 0.65);
+        // cursor: pointer;
+        filter: drop-shadow(0 0 4px rgba(var(--green), 0.4));
+        color: rgba(var(--green), 0.65);
     }
 }
 
@@ -129,6 +159,7 @@ p { margin: 0;}
     bottom: 0;
     left: 0;
     color: rgba(var(--foreground), 0.6);
+    user-select: none;
     font-size: 12.5px;
 
     * { flex-shrink: 0;}

@@ -10,8 +10,8 @@
     & > * { overflow: visible;}
 
     .l-blob {
-        color: rgba(var(--active-green));
-        filter: drop-shadow(30px -15px 30px rgba(var(--active-green)));
+        color: rgba(var(--green));
+        filter: drop-shadow(30px -15px 30px rgba(var(--green)));
     }
 
     .r-blob {
@@ -31,7 +31,7 @@
 
 .letter {
     --colour: rgba(var(--black));
-    cursor: pointer;
+    // cursor: pointer;
 
     max-width: max-content;
     align-self: center;
@@ -79,12 +79,12 @@
     }
 
     &:active {
-        --colour: rgba(var(--active-green), 0.5);
+        --colour: rgba(var(--green), 0.5);
         transition: none;
 
-        color: rgba(var(--active-green));
+        color: rgba(var(--green));
 
         &::before,
-        &::after { color: rgba(var(--active-green));}
+        &::after { color: rgba(var(--green));}
     }
 }

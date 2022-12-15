@@ -1,11 +1,5 @@
 import Link from "next/link";
-
-type LetterProps = {
-    full: string,
-    redirect?: string,
-    preceding?: boolean,
-    newTab?: boolean,
-}
+import LetterProps from "../types/Letter";
 
 export default function LetterButton({
     full,

@@ -2,7 +2,7 @@
 // ┣─> Bots
 // ╰───────────────────────────────────── >> >
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 760px) {
     .bots {
         grid-template-columns: 1fr !important;
         gap: 50px !important;
@@ -23,7 +23,7 @@
 
 .bot {
     text-align: center;
-    color: rgba(var(--active-green));
+    color: rgba(var(--green));
     border-radius: 10px;
     background-color: rgba(var(--foreground), 0.035);
     box-shadow: 0 0 50px rgba(var(--black)),
@@ -46,12 +46,12 @@
 
     &.invitable:hover {
         text-decoration: underline;
-        cursor: pointer;
+        // cursor: pointer;
         background: transparent;
     }
 }
 
 .botlink {
-    cursor: default;
+    // cursor: default;
     text-decoration: none;
 }

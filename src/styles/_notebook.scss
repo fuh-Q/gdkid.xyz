@@ -12,7 +12,7 @@
 
 .note {
     .timestamp {
-        color: rgba(var(--active-green), 0.5);
+        color: rgba(var(--green), 0.5);
         margin-bottom: 15px;
         font-size: 0.9em;
         user-select: none;
@@ -29,7 +29,7 @@
     a[href] {
         word-break: break-all;
         color: rgba(var(--foreground));
-        &:active { color: rgba(var(--active-green), 0.5);}
+        &:active { color: rgba(var(--green), 0.5);}
     }
 
     word-break: normal;
