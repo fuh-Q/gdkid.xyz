@@ -27,7 +27,7 @@ export default function NoteBook({ rawRows }: { rawRows: RawNote[] }) {
             if (spoof) spoof.scrollIntoView();
             else window.scrollTo(0, 0);
         });
-    }, [])
+    }, []);
 
     return (
         <>
