@@ -32,7 +32,7 @@ export default function CPSCounter() {
     else if (shouldShowPopup && (leftClicks < 2 && rightClicks < 2)) setShowPopup(false);
 
     return (
-        <div className={`cpsContainer ${shouldShowPopup ? "inDisplay" : ""}`}>
+        <div className={`cpsContainer${shouldShowPopup ? " inDisplay" : " "}`}>
             click fass
             <span>{`${leftClicks} | ${rightClicks} cps`}</span>
         </div>
