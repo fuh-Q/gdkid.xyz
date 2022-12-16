@@ -9,6 +9,11 @@ a { cursor: none;}
     position: absolute;
     z-index: 100;
 
+    &:first-child {
+        z-index: 1;
+        filter: drop-shadow(0 0 10px rgba(var(--cursor-tint)));
+    }
+
     .mouse {
         transition: opacity .25s ease-in-out;
         position: fixed;
@@ -17,11 +22,6 @@ a { cursor: none;}
         background: radial-gradient(white, rgba(var(--cursor-tint)) 69%);
         border-radius: 20px;
         z-index: -1;
-
-        &.m1 {
-            z-index: 1;
-            filter: drop-shadow(0 0 10px rgba(var(--cursor-tint)));
-        }
     }
 }
 
