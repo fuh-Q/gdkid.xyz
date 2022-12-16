@@ -12,7 +12,7 @@ export default function Home() {
 			</Head>
 			<div className="site-body">
 				<div className="letters">
-					<LetterButton full="Github" redirect="https://github.com/dim-witted" newTab={true}/>
+					<LetterButton full="Github" redirect="https://github.com/kidgd" newTab={true}/>
 					<LetterButton full="Discord server" redirect="https://discord.gg/gKEKpyXeEB" newTab={true}/>
 					<LetterButton full="Artwork" redirect="/artwork" preceding={true}/>
 					<LetterButton full="Idk" redirect="/notebook"/>
