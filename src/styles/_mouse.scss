@@ -7,8 +7,7 @@ a { cursor: none;}
 #customMouse {
     transform: translate(-10px, -10px);
     pointer-events: none;
-    position: absolute;
-    z-index: 100;
+    position: fixed;
 
     &:first-child {
         z-index: 1;
