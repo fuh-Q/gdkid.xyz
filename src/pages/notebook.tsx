@@ -5,7 +5,6 @@ import NoteItem from "../components/NoteItem";
 import type { RawNote, Note } from "../types/Note";
 
 import Head from "next/head";
-
 import { useEffect } from "react";
 
 export default function NoteBook({ rawRows }: { rawRows: RawNote[] }) {
@@ -16,7 +15,7 @@ export default function NoteBook({ rawRows }: { rawRows: RawNote[] }) {
     }});
 
     useEffect(() => {
-        const noteId = window.location.href.match(/.+#(\d+)/)?.[1];
+        const noteId = new URL(window.location.href).hash.slice(1);
         if (!noteId) return;
 
         const elem = document.getElementById(noteId);

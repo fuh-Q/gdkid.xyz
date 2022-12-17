@@ -3,20 +3,20 @@ import { createPortal } from "react-dom";
 
 import type MouseProps from "../types/Mouse";
 
-export default function Mouse({ delay = 0, n }: MouseProps) {
+export default function Mouse({ mouseN }: MouseProps) {
     const [ready, setReady] = useState(false);
     const [shouldShowMouse, setShowMouse] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setReady(true);
+        const delay = 50 * (mouseN - 1);
         const onMouseMove = (e: MouseEvent) => setTimeout(() => {
             if (!ref.current) return;
 
             ref.current.style.top = `${e.clientY}px`;
             ref.current.style.left = `${e.clientX}px`;
         }, delay);
-        document.addEventListener("pointermove", onMouseMove);
 
         const setCursorColour = (val: string): void => {
             const bs = window.getComputedStyle(document.body);
@@ -24,6 +24,8 @@ export default function Mouse({ delay = 0, n }: MouseProps) {
         }
         const onPointerDown = (_: PointerEvent) => setCursorColour("--aqua");
         const onPointerUp = (_: PointerEvent) => setCursorColour("--green");
+
+        document.addEventListener("pointermove", onMouseMove);
         document.addEventListener("pointerdown", onPointerUp);
         document.addEventListener("pointerup", onPointerDown);
 
@@ -32,7 +34,7 @@ export default function Mouse({ delay = 0, n }: MouseProps) {
             document.removeEventListener("pointerdown", onPointerDown);
             document.removeEventListener("pointerup", onPointerUp);
         }
-    }, [delay]);
+    }, []);
 
     useEffect(() => {
         const onPointerMove = () => {
@@ -53,11 +55,11 @@ export default function Mouse({ delay = 0, n }: MouseProps) {
 
     return ready ? createPortal(
         <div
-            className={`mouse m${n}`}
+            className="mouse"
             ref={ref}
             style={{
-                transform: `scale(${1.4 - n * 0.2})`,
-                opacity: shouldShowMouse ? 1 / n : 0,
+                transform: `scale(${1.4 - mouseN * 0.2})`,
+                opacity: shouldShowMouse ? 1 / mouseN : 0,
             }}/>,
         document.getElementById("customMouse") as HTMLDivElement
     ) : null;
