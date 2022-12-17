@@ -34,7 +34,7 @@ export default function Mouse({ mouseN }: MouseProps) {
             document.removeEventListener("pointerdown", onPointerDown);
             document.removeEventListener("pointerup", onPointerUp);
         }
-    }, []);
+    }, [mouseN]);
 
     useEffect(() => {
         const onPointerMove = () => {
