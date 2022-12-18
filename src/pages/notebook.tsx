@@ -10,7 +10,7 @@ export default function NoteBook({ rawRows }: { rawRows: RawNote[] }) {
     const rows: Note[] = rawRows.map(row => {return {
         id: row.id,
         timestamp: new Date(row.timestamp),
-        note: row.note
+        note: row.note,
     }});
 
     useEffect(() => {
