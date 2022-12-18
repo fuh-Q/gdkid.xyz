@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BackArrow() {
     return (
-        <Link className="backarrow" href="/">
+        <Link className="hoverable backarrow" href="/">
             <svg
                 width={24}
                 height={24}

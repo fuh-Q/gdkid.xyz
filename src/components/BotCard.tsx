@@ -5,7 +5,7 @@ export default function BotCard({ name, description, inviteUrl }: Bot) {
     const child = (
         <div
             key={name}
-            className={`bot${inviteUrl ? ' invitable' : ''}`}>
+            className={`bot${inviteUrl ? ' invitable hoverable' : ''}`}>
             {name}
             <div className="bot-description">
                 {typeof description === "string" ? description : description.join(" ")}

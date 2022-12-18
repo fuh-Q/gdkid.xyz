@@ -15,7 +15,7 @@ export default function LetterButton({
     return (
         <Link href={redirect ?? "/"} target={newTab ? "_blank" : "_self"}>
             <div
-                className={`letter ${char.toLowerCase()}`}
+                className={`hoverable letter ${char.toLowerCase()}`}
                 {...extras}>
                 {char.toUpperCase()}
             </div>
