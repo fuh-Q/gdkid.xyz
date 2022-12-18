@@ -43,7 +43,6 @@ export default function Mouse({ mouseN }: MouseProps) {
             document.removeEventListener("pointermove", onMouseMove);
             document.removeEventListener("pointerdown", onPointerDown);
             document.removeEventListener("pointerup", onPointerUp);
-            document.body.removeEventListener("mouseenter", onMouseEnter);
 
             hoverables.forEach(hoverable => {
                 hoverable.removeEventListener("mouseenter", onMouseEnter);
