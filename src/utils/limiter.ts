@@ -1,6 +1,6 @@
 import type { NextApiRequest } from "next";
 
-type LimiterConfig = {
+type LimiterOptions = {
     rate: number;
     per: number;
     keyGen: (r: NextApiRequest) => string;
@@ -68,7 +68,7 @@ export default class LockoutLimiter {
     private _keyGen: (r: NextApiRequest) => string;
     private _mapping: {[key: string]: Bucket};
 
-    constructor(options: LimiterConfig) {
+    constructor(options: LimiterOptions) {
         this.rate = options.rate;
         this.per = options.per;
         this._keyGen = options.keyGen;

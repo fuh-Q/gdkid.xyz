@@ -1,8 +1,7 @@
 import BackArrow from "../components/BackArrow";
 import Footer from "../components/Footer";
-
-import type { Artwork, RawArtwork } from "../types/Artwork";
 import ArtItem from "../components/ArtItem";
+import type { Artwork, RawArtwork } from "../types/Artwork";
 
 import Head from "next/head";
 
@@ -31,11 +30,11 @@ export default function ArtWork({ items }: { items: RawArtwork[] }) {
                     <span>stuff that i made</span>
                 </div>
                 <div className="notes artwork">
-                    {works.map(w => {return(
+                    {works.map(w => (
                         <li key={uuidv4()}>
                             <ArtItem date={w.date} description={w.description} links={w.links}/>
                         </li>
-                    )})}
+                    ))}
                 </div>
                 <Footer/>
             </div>

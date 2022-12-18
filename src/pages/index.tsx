@@ -1,5 +1,4 @@
 import Footer from "../components/Footer";
-
 import LetterButton from "../components/LetterButton";
 
 import Head from "next/head";

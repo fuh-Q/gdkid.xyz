@@ -1,6 +1,5 @@
 import BackArrow from "../components/BackArrow";
 import Footer from "../components/Footer";
-
 import BotCard from "../components/BotCard";
 import type Bot from "../types/Bot";
 

@@ -1,6 +1,5 @@
 import BackArrow from "../components/BackArrow";
 import Footer from "../components/Footer";
-
 import NoteItem from "../components/NoteItem";
 import type { RawNote, Note } from "../types/Note";
 
@@ -39,11 +38,11 @@ export default function NoteBook({ rawRows }: { rawRows: RawNote[] }) {
                     <span>notes & thought dump</span>
                 </div>
                 <div className="notes">
-                    {rows.map(r => {return(
+                    {rows.map(r => (
                         <li key={r.id}>
                             <NoteItem id={r.id} timestamp={r.timestamp} note={r.note}/>
                         </li>
-                    )})}
+                    ))}
                 </div>
                 <Footer/>
             </div>
