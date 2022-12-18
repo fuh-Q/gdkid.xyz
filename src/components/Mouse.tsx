@@ -10,8 +10,8 @@ export default function Mouse({ mouseN }: MouseProps) {
     const [shouldShowMouse, setShowMouse] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
+    useEffect(() => setReady(true), []);
     useEffect(() => {
-        setReady(true);
         const delay = 50 * (mouseN - 1);
         const onMouseMove = (e: MouseEvent) => setTimeout(() => {
             if (!ref.current) return;
