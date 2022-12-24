@@ -3,7 +3,7 @@
         "name": "Google Classroom",
         "description": [
             "A bot that posts your Google Classroom assignments to a Discord",
-            "channel. It polls the Classroom API every 15 minutes, which is why it",
+            "channel. It polls the Classroom API every 10 minutes, which is why it",
             "may take up to that amount of time for new posts to appear"
         ],
         "inviteUrl": "https://canary.discord.com/api/oauth2/authorize?client_id=988862592468521031&permissions=604490816&scope=bot%20applications.commands"
