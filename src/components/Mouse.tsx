@@ -3,8 +3,6 @@ import { createPortal } from "react-dom";
 
 import type MouseProps from "../types/Mouse";
 
-interface HoverEvent extends MouseEvent { target: HTMLElement }
-
 export default function Mouse({ mouseN }: MouseProps) {
     const [ready, setReady] = useState(false);
     const [shouldShowMouse, setShowMouse] = useState(false);
