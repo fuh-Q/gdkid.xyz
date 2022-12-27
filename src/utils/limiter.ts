@@ -4,7 +4,7 @@ type LimiterOptions = {
     rate: number;
     per: number;
     keyGen: (r: NextApiRequest) => string;
-}
+};
 
 class Bucket {
     last: Date;
@@ -36,7 +36,7 @@ class Bucket {
         this._tokenCount--;
         this._tokenCount = this._getTokenCount(rn);
 
-        if (rn.getTime() - this._window.getTime() > (this._per * 1000)) {
+        if (rn.getTime() - this._window.getTime() > this._per * 1000) {
             this._window = rn;
         }
 
@@ -46,7 +46,7 @@ class Bucket {
     private _getTokenCount(rn: Date): number {
         let tokens = this._tokenCount > 0 ? this._tokenCount : 0;
 
-        if (rn.getTime() > this._window.getTime() + (this._per * 1000) && this._hasChilledOut(rn)) {
+        if (rn.getTime() > this._window.getTime() + this._per * 1000 && this._hasChilledOut(rn)) {
             tokens = this._maxTokens;
         }
 
@@ -54,11 +54,9 @@ class Bucket {
     }
 
     private _hasChilledOut(rn: Date): boolean {
-        if (this._tokenCount > 0) {
-            return true;
-        }
+        if (this._tokenCount > 0) return true;
 
-        return rn.getTime() - this.last.getTime() > (this._per * 1000);
+        return rn.getTime() - this.last.getTime() > this._per * 1000;
     }
 }
 

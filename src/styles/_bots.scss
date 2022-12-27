@@ -26,8 +26,7 @@
     color: rgba(var(--green));
     border-radius: 10px;
     background-color: rgba(var(--foreground), 0.035);
-    box-shadow: 0 0 50px rgba(var(--black)),
-                inset 0 0 15px rgba(var(--black));
+    box-shadow: 0 0 50px rgba(var(--black)), inset 0 0 15px rgba(var(--black));
     height: 100%;
     padding: 20px;
     margin: 5px;
@@ -35,7 +34,7 @@
 
     font-size: 1.5em;
 
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 
     .bot-description {
         color: rgba(var(--foreground));

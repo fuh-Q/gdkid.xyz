@@ -10,9 +10,9 @@ export default function CPSCounter() {
         const onClick = (e: MouseEvent) => {
             if (window.matchMedia("only screen and (max-width: 750px)").matches) return;
             const buttonCallback = (setter: Dispatch<SetStateAction<number>>) => {
-                setter(c => c + 1);
-                setTimeout(() => setter(c => c - 1), 1000);
-            }
+                setter((c) => c + 1);
+                setTimeout(() => setter((c) => c - 1), 1000);
+            };
 
             switch (e.button) {
                 case 0: // left click
@@ -22,14 +22,14 @@ export default function CPSCounter() {
                     buttonCallback(setRightClicks);
                     break;
             }
-        }
+        };
 
         document.addEventListener("mouseup", onClick);
         return () => document.removeEventListener("mouseup", onClick);
     }, [shouldShowPopup, leftClicks, rightClicks]);
 
     if (!shouldShowPopup && (leftClicks > 4 || rightClicks > 4)) setShowPopup(true);
-    else if (shouldShowPopup && (leftClicks < 2 && rightClicks < 2)) setShowPopup(false);
+    else if (shouldShowPopup && leftClicks < 2 && rightClicks < 2) setShowPopup(false);
 
     return (
         <div className={`cpsContainer${shouldShowPopup ? " inDisplay" : ""}`}>

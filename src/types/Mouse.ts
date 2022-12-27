@@ -1,3 +1,3 @@
 export default interface MouseProps {
-    mouseN: number,
+    mouseN: number;
 }

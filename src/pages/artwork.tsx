@@ -11,35 +11,37 @@ export default function ArtWork({ items }: { items: RawArtwork[] }) {
     const handleDescription = (d?: string | string[]): string => {
         const s = d ?? "";
         return typeof s === "string" ? s : s.join(" ");
-    }
+    };
 
-    const works: Artwork[] = items.map(item => {return {
-        date: new Date(item.date),
-        description: handleDescription(item.description),
-        links: item.links,
-    }});
+    const works: Artwork[] = items.map((item) => {
+        return {
+            date: new Date(item.date),
+            description: handleDescription(item.description),
+            links: item.links,
+        };
+    });
 
-  	return (
+    return (
         <>
             <Head>
                 <title>artwork</title>
             </Head>
             <div className="site-body">
-                <BackArrow/>
+                <BackArrow />
                 <div className="intro">
                     <span>stuff that i made</span>
                 </div>
                 <div className="notes artwork">
-                    {works.map(w => (
+                    {works.map((w) => (
                         <li key={uuidv4()}>
-                            <ArtItem date={w.date} description={w.description} links={w.links}/>
+                            <ArtItem date={w.date} description={w.description} links={w.links} />
                         </li>
                     ))}
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         </>
-  	);
+    );
 }
 
 export async function getStaticProps() {
@@ -49,5 +51,5 @@ export async function getStaticProps() {
     return {
         props: { items },
         revalidate: 15,
-    }
+    };
 }

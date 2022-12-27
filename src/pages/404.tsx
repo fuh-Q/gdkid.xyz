@@ -10,11 +10,11 @@ export default function NotFound() {
                 <title>not found</title>
             </Head>
             <div className="site-body">
-                <BackArrow/>
+                <BackArrow />
                 <div className="intro">
                     <span>page not found</span>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         </>
     );

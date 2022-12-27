@@ -3,7 +3,7 @@
 // ╰───────────────────────────────────── >> >
 
 :root {
-    --background-image: url('../../public/assets/lines.png');
+    --background-image: url("../../public/assets/lines.png");
 
     --aqua: 135, 255, 255;
     --black: 10, 10, 10;
@@ -33,7 +33,9 @@ html {
     }
 }
 
-li { list-style-type: none;}
+li {
+    list-style-type: none;
+}
 
 blockquote {
     border-left: 5px solid rgba(var(--foreground), 0.25);
@@ -48,7 +50,9 @@ code {
     padding: 2px 5px 2px 5px;
 }
 
-p { margin: 0;}
+p {
+    margin: 0;
+}
 
 .intro {
     display: flex;
@@ -61,8 +65,7 @@ p { margin: 0;}
     text-align: center;
 
     & * {
-        box-shadow: 0 0 35px rgba(var(--black)),
-                    inset 0 0 15px rgba(var(--black));
+        box-shadow: 0 0 35px rgba(var(--black)), inset 0 0 15px rgba(var(--black));
         filter: drop-shadow(0 0 20px rgba(var(--black)));
         font-size: 1.25em;
         color: rgba(var(--foreground));
@@ -75,7 +78,9 @@ p { margin: 0;}
         user-select: none;
     }
 
-    & + * { margin-top: 3em;}
+    & + * {
+        margin-top: 3em;
+    }
 }
 
 .backarrow {
@@ -137,7 +142,9 @@ p { margin: 0;}
     user-select: none;
     font-size: 12.5px;
 
-    * { flex-shrink: 0;}
+    * {
+        flex-shrink: 0;
+    }
 
     .footer-icon {
         width: 32px;
@@ -148,11 +155,15 @@ p { margin: 0;}
 ::-webkit-scrollbar {
     width: 8px;
 
-    &-track { background: transparent;}
+    &-track {
+        background: transparent;
+    }
     &-thumb {
         background: rgba(var(--foreground), 0.15);
         border-radius: 15px;
 
-        &:hover { background: rgba(var(--foreground), 0.2);}
+        &:hover {
+            background: rgba(var(--foreground), 0.2);
+        }
     }
 }

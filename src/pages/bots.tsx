@@ -14,21 +14,27 @@ export default function Bots({ items }: { items: Bot[] }) {
                 <title>discord bots</title>
             </Head>
             <div className="site-body">
-                <BackArrow/>
+                <BackArrow />
                 <div className="intro">
-                    <span>discord bots<br/>(click the cards to invite!)</span>
+                    <span>
+                        discord bots
+                        <br />
+                        (click the cards to invite!)
+                    </span>
                 </div>
                 <div className="bots">
-                    {items.map(i => {return (
-                        <li key={uuidv4()}>
-                            <BotCard name={i.name} description={i.description} inviteUrl={i.inviteUrl}/>
-                        </li>
-                    )})}
+                    {items.map((i) => {
+                        return (
+                            <li key={uuidv4()}>
+                                <BotCard name={i.name} description={i.description} inviteUrl={i.inviteUrl} />
+                            </li>
+                        );
+                    })}
                     <li>
-                        <BotCard name="Soon™" description="I'll probably add more stuff in the future..."/>
+                        <BotCard name="Soon™" description="I'll probably add more stuff in the future..." />
                     </li>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         </>
     );
@@ -41,5 +47,5 @@ export async function getStaticProps() {
     return {
         props: { items },
         revalidate: 15,
-    }
+    };
 }

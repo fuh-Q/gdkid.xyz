@@ -11,12 +11,13 @@ export default function Mouse({ mouseN }: MouseProps) {
     useEffect(() => setReady(true), []);
     useEffect(() => {
         const delay = 50 * (mouseN - 1);
-        const onMouseMove = (e: MouseEvent) => setTimeout(() => {
-            if (!ref.current) return;
+        const onMouseMove = (e: MouseEvent) =>
+            setTimeout(() => {
+                if (!ref.current) return;
 
-            ref.current.style.top = `${e.clientY}px`;
-            ref.current.style.left = `${e.clientX}px`;
-        }, delay);
+                ref.current.style.top = `${e.clientY}px`;
+                ref.current.style.left = `${e.clientX}px`;
+            }, delay);
 
         const onPointerDown = (_: PointerEvent) => setCursorColour("--green");
         const onPointerUp = (_: PointerEvent) => setCursorColour("--aqua");
@@ -25,14 +26,14 @@ export default function Mouse({ mouseN }: MouseProps) {
         const setCursorColour = (val: string): void => {
             const bs = window.getComputedStyle(document.body);
             document.body.style.setProperty("--cursor-tint", bs.getPropertyValue(val));
-        }
+        };
 
         document.addEventListener("pointermove", onMouseMove);
         document.addEventListener("pointerdown", onPointerDown);
         document.addEventListener("pointerup", onPointerUp);
 
         const hoverables = document.querySelectorAll<HTMLElement>(".hoverable");
-        hoverables.forEach(hoverable => {
+        hoverables.forEach((hoverable) => {
             hoverable.addEventListener("mouseenter", onMouseEnter);
             hoverable.addEventListener("mouseleave", onMouseLeave);
         });
@@ -42,38 +43,38 @@ export default function Mouse({ mouseN }: MouseProps) {
             document.removeEventListener("pointerdown", onPointerDown);
             document.removeEventListener("pointerup", onPointerUp);
 
-            hoverables.forEach(hoverable => {
+            hoverables.forEach((hoverable) => {
                 hoverable.removeEventListener("mouseenter", onMouseEnter);
                 hoverable.removeEventListener("mouseleave", onMouseLeave);
             });
-        }
+        };
     });
 
     useEffect(() => {
         const onPointerMove = () => {
-            if (
-                !shouldShowMouse &&
-                !window.matchMedia("only screen and (max-width: 750px)").matches
-            ) {
+            if (!shouldShowMouse && !window.matchMedia("only screen and (max-width: 750px)").matches) {
                 setTimeout(() => setShowMouse(true), 69);
             }
-        }
+        };
 
         window.addEventListener("pointermove", onPointerMove);
 
         return () => {
             document.removeEventListener("pointermove", onPointerMove);
-        }
+        };
     }, [shouldShowMouse]);
 
-    return ready ? createPortal(
-        <div
-            className="mouse"
-            ref={ref}
-            style={{
-                transform: `scale(${1.4 - mouseN * 0.2})`,
-                opacity: shouldShowMouse ? 1 / mouseN : 0,
-            }}/>,
-        document.getElementById("customMouse") as HTMLDivElement
-    ) : null;
+    return ready
+        ? createPortal(
+              <div
+                  className="mouse"
+                  ref={ref}
+                  style={{
+                      transform: `scale(${1.4 - mouseN * 0.2})`,
+                      opacity: shouldShowMouse ? 1 / mouseN : 0,
+                  }}
+              />,
+              document.getElementById("customMouse") as HTMLDivElement
+          )
+        : null;
 }

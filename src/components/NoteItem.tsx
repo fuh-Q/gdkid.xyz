@@ -8,13 +8,15 @@ export default function NoteItem({ id, timestamp, note }: Note) {
 
     return (
         <>
-            <hr className="separator"/>
+            <hr className="separator" />
             <div id={`${id}`} className="note">
                 <div className="timestamp">
                     {formatted}
-                    <span className="inline-note-id"><i>{`# ${id}`}</i></span>
+                    <span className="inline-note-id">
+                        <i>{`# ${id}`}</i>
+                    </span>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: toHTML(note) }}/>
+                <div dangerouslySetInnerHTML={{ __html: toHTML(note) }} />
             </div>
         </>
     );

@@ -7,11 +7,13 @@ import Head from "next/head";
 import { useEffect } from "react";
 
 export default function NoteBook({ rawRows }: { rawRows: RawNote[] }) {
-    const rows: Note[] = rawRows.map(row => {return {
-        id: row.id,
-        timestamp: new Date(row.timestamp),
-        note: row.note,
-    }});
+    const rows: Note[] = rawRows.map((row) => {
+        return {
+            id: row.id,
+            timestamp: new Date(row.timestamp),
+            note: row.note,
+        };
+    });
 
     useEffect(() => {
         const noteId = new URL(window.location.href).hash.slice(1);
@@ -33,18 +35,18 @@ export default function NoteBook({ rawRows }: { rawRows: RawNote[] }) {
                 <title>thought dump</title>
             </Head>
             <div className="site-body">
-                <BackArrow/>
+                <BackArrow />
                 <div className="intro">
                     <span>notes & thought dump</span>
                 </div>
                 <div className="notes">
-                    {rows.map(r => (
+                    {rows.map((r) => (
                         <li key={r.id}>
-                            <NoteItem id={r.id} timestamp={r.timestamp} note={r.note}/>
+                            <NoteItem id={r.id} timestamp={r.timestamp} note={r.note} />
                         </li>
                     ))}
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         </>
     );
@@ -57,5 +59,5 @@ export async function getStaticProps() {
     return {
         props: { rawRows },
         revalidate: 15,
-    }
+    };
 }

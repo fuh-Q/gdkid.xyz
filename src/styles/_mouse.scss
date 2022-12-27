@@ -2,7 +2,9 @@
 // ┣─> Cursor + Clicking
 // ╰───────────────────────────────────── >> >
 
-a { cursor: none;}
+a {
+    cursor: none;
+}
 
 #customMouse {
     transform: translate(-17.5px, -20px);
@@ -15,7 +17,7 @@ a { cursor: none;}
     }
 
     .mouse {
-        transition: opacity .25s ease-in-out;
+        transition: opacity 0.25s ease-in-out;
         position: fixed;
         width: 20px;
         height: 20px;
@@ -38,10 +40,12 @@ a { cursor: none;}
     padding: 15px;
     border: 3px solid rgba(var(--green), 0.2);
     border-radius: 10px;
-    transition: opacity .2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
     opacity: 0;
 
-    &.inDisplay { opacity: 1;}
+    &.inDisplay {
+        opacity: 1;
+    }
     span {
         font-size: 1.2em;
         color: rgba(var(--green));

@@ -3,8 +3,12 @@
 // ╰───────────────────────────────────── >> >
 
 @keyframes flash {
-    50% { background: rgba(var(--foreground), 0.3);}
-    to { background: transparent;}
+    50% {
+        background: rgba(var(--foreground), 0.3);
+    }
+    to {
+        background: transparent;
+    }
 }
 
 .flash {
@@ -38,7 +42,9 @@
     a[href] {
         word-break: break-all;
         color: rgba(var(--foreground));
-        &:active { color: rgba(var(--green), 0.5);}
+        &:active {
+            color: rgba(var(--green), 0.5);
+        }
     }
 
     word-break: normal;

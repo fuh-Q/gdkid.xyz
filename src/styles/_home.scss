@@ -7,7 +7,9 @@
     margin-top: -30px;
     z-index: -1;
 
-    & > * { overflow: visible;}
+    & > * {
+        overflow: visible;
+    }
 
     .l-blob {
         color: rgba(var(--green));
@@ -26,7 +28,9 @@
     flex-direction: column;
     align-items: center;
 
-    & > a { text-decoration: none;}
+    & > a {
+        text-decoration: none;
+    }
 }
 
 .letter {
@@ -41,8 +45,7 @@
     user-select: none;
 
     background: transparent;
-    box-shadow: 0 0 15px var(--colour),
-                inset 0 0 15px var(--colour);
+    box-shadow: 0 0 15px var(--colour), inset 0 0 15px var(--colour);
     color: white;
     border: none;
 
@@ -85,6 +88,8 @@
         color: rgba(var(--green));
 
         &::before,
-        &::after { color: rgba(var(--green));}
+        &::after {
+            color: rgba(var(--green));
+        }
     }
 }
