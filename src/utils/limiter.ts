@@ -66,7 +66,7 @@ export default class LockoutLimiter {
     rate: number;
     per: number;
     private _keyGen: (r: NextApiRequest) => string;
-    private _mapping: {[key: string]: Bucket};
+    private _mapping: { [key: string]: Bucket };
 
     constructor(options: LimiterOptions) {
         this.rate = options.rate;
