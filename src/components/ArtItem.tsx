@@ -6,7 +6,7 @@ import { MONTHS } from "../utils/time";
 export default function ArtItem({ date, description, links }: Artwork) {
     description = toHTML(description, { escapeHTML: false }) + "<br/>";
     links.map((link) => (description += `<br/><br/><img alt='image' src='${link}'/>`));
-    const formatted = `${MONTHS[date.getUTCMonth()]} ${date.getUTCDate()} ${date.getUTCFullYear()}`;
+    const formatted = `${MONTHS[date.getUTCMonth()].slice(0, 3)}. ${date.getUTCDate()} ${date.getUTCFullYear()}`;
 
     return (
         <>

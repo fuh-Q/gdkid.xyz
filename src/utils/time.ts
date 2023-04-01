@@ -1,20 +1,22 @@
 export const MONTHS = Object.freeze([
-    "jan.",
-    "feb.",
-    "mar.",
-    "apr.",
-    "may.",
-    "jun.",
-    "jul.",
-    "aug.",
-    "sep.",
-    "oct.",
-    "nov.",
-    "dec.",
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
 ]);
 
+export const DAYS = Object.freeze(["s", "m", "t", "w", "t", "f", "s"]);
+
 export default function formatDate(timestamp: Date, precise: boolean = true): string {
-    let ret = [`${MONTHS[timestamp.getMonth()]}`, `${timestamp.getDate()}`, `${timestamp.getFullYear()}`];
+    let ret = [`${MONTHS[timestamp.getMonth()].slice(0, 3)}.`, `${timestamp.getDate()}`, `${timestamp.getFullYear()}`];
 
     if (precise) {
         let hour = timestamp.getHours();

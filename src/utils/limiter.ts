@@ -60,7 +60,7 @@ class Bucket {
     }
 }
 
-export default class LockoutLimiter {
+export class LockoutLimiter {
     rate: number;
     per: number;
     private _keyGen: (r: NextApiRequest) => string;
@@ -94,4 +94,12 @@ export default class LockoutLimiter {
 
         return this._mapping[key];
     }
+}
+
+export function getNewDefaultLimiter() {
+    return new LockoutLimiter({
+        rate: 3,
+        per: 2,
+        keyGen: (r: NextApiRequest) => r.socket.remoteAddress || "",
+    });
 }
