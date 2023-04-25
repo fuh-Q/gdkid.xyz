@@ -53,7 +53,7 @@ function handleMarks(marks: Scream[], year: number, month: number): void {
 function ScreamCal({ year, month, marks }: CalendarProps) {
     const date = new Date(year, month);
     const body = generateBody(date, month);
-    useEffect(() => handleMarks(marks, year, month), [month]);
+    useEffect(() => handleMarks(marks, year, month));
 
     const header = (
         <thead>
