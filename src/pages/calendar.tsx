@@ -37,20 +37,20 @@ async function fetchYear(year: number, parse: boolean): Promise<(Scream[] | RawS
 }
 
 export default function Calendar({ data }: { data: RawScream[] | null }) {
-    if (!data) {
-        return <SimplePage msg="stop spamming lol" head="🛑" />;
-    }
-
     const rn = new Date(),
         year = rn.getFullYear(),
         month = rn.getMonth(),
-        initMarks = deserializeScreamDate(data),
+        initMarks = data ? deserializeScreamDate(data) : [],
         [tracking, setTracking] = useState<Date>(rn),
         [inStartBounds, setInStartBounds] = useState<boolean>(isWithinStartBounds(tracking)),
         [inEndBounds, setInEndBounds] = useState<boolean>(false),
         [yearCache, _] = useState<YearCache>({ [year]: initMarks }),
         [marks, setMarks] = useState<Scream[]>(initMarks),
         [notedMarks, setNotedMarks] = useState<Scream[]>(marks.filter((m) => notedMarkFilter(m)));
+
+    if (!data) {
+        return <SimplePage msg="stop spamming lol" head="🛑" />;
+    }
 
     function notedMarkFilter(m: Scream, yr = year, mo = month) {
         // list of noted marks are for the full year, here we narrow it down to the month
