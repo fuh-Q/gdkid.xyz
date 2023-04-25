@@ -28,13 +28,3 @@ export default function Bots() {
         </>
     );
 }
-
-export async function getStaticProps() {
-    const req = await fetch("http://localhost:3000/data/bots.json");
-    const items = await req.json();
-
-    return {
-        props: { items },
-        revalidate: 15,
-    };
-}
