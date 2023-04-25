@@ -36,11 +36,12 @@ function urlHashHandler() {
 }
 
 export default function NoteBook({ rawRows }: { rawRows: RawNote[] | null }) {
+    useEffect(urlHashHandler, []);
+
     if (!rawRows) {
         return <SimplePage msg="stop spamming lol" head="🛑" />;
     }
 
-    useEffect(urlHashHandler, []);
     const rows = deserializeNotes(rawRows);
 
     return (
