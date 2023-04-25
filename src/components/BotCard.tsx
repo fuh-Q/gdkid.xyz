@@ -1,4 +1,5 @@
 import type Bot from "../types/Bot";
+
 import Link from "next/link";
 
 export default function BotCard({ name, description, inviteUrl }: Bot) {

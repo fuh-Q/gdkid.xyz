@@ -1,0 +1,14 @@
+// ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ >> >
+// ┣─> Inspiring
+// ╰───────────────────────────────────── >> >
+
+.motivating-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    * {
+        margin: 40px;
+        box-shadow: 0 0 15px black;
+    }
+}

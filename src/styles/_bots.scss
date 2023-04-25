@@ -45,12 +45,12 @@
 
     &.invitable:hover {
         text-decoration: underline;
-        // cursor: pointer;
+        cursor: pointer;
         background: transparent;
     }
 }
 
 .botlink {
-    // cursor: default;
+    cursor: default;
     text-decoration: none;
 }

@@ -1,41 +1,30 @@
-import BackArrow from "../components/BackArrow";
-import Footer from "../components/Footer";
 import BotCard from "../components/BotCard";
-import type Bot from "../types/Bot";
-
-import Head from "next/head";
+import Metadata from "../components/Metadata";
+import SitePage from "../components/SitePage";
+import items from "../../public/data/bots.json" assert { type: "json" };
 
 import { v4 as uuidv4 } from "uuid";
 
-export default function Bots({ items }: { items: Bot[] }) {
+export default function Bots() {
     return (
         <>
-            <Head>
-                <title>discord bots</title>
-            </Head>
-            <div className="site-body">
-                <BackArrow />
-                <div className="intro">
-                    <span>
-                        discord bots
-                        <br />
-                        (click the cards to invite!)
-                    </span>
-                </div>
-                <div className="bots">
-                    {items.map((i) => {
-                        return (
-                            <li key={uuidv4()}>
-                                <BotCard name={i.name} description={i.description} inviteUrl={i.inviteUrl} />
-                            </li>
-                        );
-                    })}
-                    <li>
-                        <BotCard name="Soon™" description="I'll probably add more stuff in the future..." />
-                    </li>
-                </div>
-                <Footer />
-            </div>
+            <Metadata
+                title="discord bots"
+                ogDescription="homemade discord bots (why does it sound strange to describe them as 'homemade' lol)"
+            />
+
+            <SitePage className="bots" pageName="discord bots<br/>(click the cards to invite!)">
+                {items.map((item) => {
+                    return (
+                        <li key={uuidv4()}>
+                            <BotCard name={item.name} description={item.description} inviteUrl={item.inviteUrl} />
+                        </li>
+                    );
+                })}
+                <li>
+                    <BotCard name="Soon™" description="I'll probably add more stuff in the future..." />
+                </li>
+            </SitePage>
         </>
     );
 }

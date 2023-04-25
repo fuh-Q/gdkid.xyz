@@ -12,13 +12,13 @@
     --pink: 255, 0, 255;
     --nitro-pink: 244, 127, 255;
 
-    --cursor-tint: var(--aqua);
+    // --cursor-tint: var(--aqua);
 
     --foreground: 150, 150, 150;
 }
 
 html {
-    cursor: none;
+    // cursor: none;
 
     &::before {
         content: "";
@@ -32,6 +32,10 @@ html {
     & * {
         font-family: monospace;
     }
+}
+
+body {
+    overflow-y: scroll;
 }
 
 li {
@@ -79,7 +83,7 @@ p {
         user-select: none;
     }
 
-    & + * {
+    & ~ * {
         margin-top: 3em;
     }
 }
@@ -92,9 +96,8 @@ p {
     top: 20px;
 
     &:hover svg {
-        // cursor: pointer;
         filter: drop-shadow(0 0 6px rgba(var(--green)));
-        stroke: rgba(var(--green), 0.65);
+        stroke: rgba(var(--green), 0.8);
     }
 }
 
@@ -112,7 +115,7 @@ p {
     color: rgba(var(--foreground), 0.75);
 
     &:hover {
-        // cursor: pointer;
+        cursor: pointer;
         filter: drop-shadow(0 0 4px rgba(var(--green), 0.4));
         color: rgba(var(--green), 0.65);
     }

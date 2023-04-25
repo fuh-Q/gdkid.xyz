@@ -5,7 +5,8 @@ export interface RawNote {
 }
 
 export interface Note {
-    id: number;
+    id?: number;
     timestamp: Date;
-    note: string;
+    includeTime?: boolean;
+    note?: string;
 }

@@ -15,7 +15,7 @@ export const MONTHS = Object.freeze([
 
 export const DAYS = Object.freeze(["s", "m", "t", "w", "t", "f", "s"]);
 
-export default function formatDate(timestamp: Date, precise: boolean = true): string {
+export default function formatDate(timestamp: Date, precise?: boolean): string {
     let ret = [`${MONTHS[timestamp.getMonth()].slice(0, 3)}.`, `${timestamp.getDate()}`, `${timestamp.getFullYear()}`];
 
     if (precise) {

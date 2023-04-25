@@ -1,7 +1,7 @@
+import type MouseProps from "../types/Mouse";
+
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-
-import type MouseProps from "../types/Mouse";
 
 export default function Mouse({ mouseN }: MouseProps) {
     const [ready, setReady] = useState(false);

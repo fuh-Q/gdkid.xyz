@@ -1,0 +1,82 @@
+// ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ >> >
+// ┣─> Scream Calendar
+// ╰───────────────────────────────────── >> >
+
+.calendar-move {
+    transform: scale(1.2);
+    background: none;
+    border: none;
+    padding: 0px;
+    // cursor: none;
+
+    &:hover {
+        cursor: pointer;
+        svg {
+            filter: drop-shadow(0 0 6px rgba(var(--green)));
+            stroke: rgba(var(--green));
+        }
+    }
+}
+
+.page-content {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+
+    box-shadow: 0 0 35px rgba(var(--black)), inset 0 0 35px rgba(var(--black));
+    border-radius: 5px;
+
+    user-select: none;
+
+    color: rgba(var(--foreground));
+
+    .invis {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .calendar-tip span {
+        font-weight: bold;
+        border-bottom: 1px ridge rgba(var(--red));
+    }
+
+    .calendar,
+    .no-cal,
+    tbody,
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    tr.header-month {
+        text-transform: capitalize;
+    }
+    tr.header-days {
+        color: rgba(var(--green));
+    }
+}
+
+.calendarDay {
+    &::before {
+        content: "";
+        visibility: hidden;
+    }
+
+    &.marked {
+        white-space: nowrap;
+        color: rgba(var(--red));
+        filter: drop-shadow(0 0 3px rgba(var(--red)));
+
+        &.hasNote::before {
+            content: "";
+            position: absolute;
+            border-bottom: 2px ridge rgba(var(--red));
+            top: 0;
+            left: 25%;
+            width: 50%;
+            height: 90%;
+            visibility: initial;
+        }
+    }
+}

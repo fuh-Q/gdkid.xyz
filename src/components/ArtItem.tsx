@@ -1,7 +1,7 @@
-import type { Artwork } from "../types/Artwork";
-import { toHTML } from "discord-markdown";
-
+import type Artwork from "../types/Artwork";
 import { MONTHS } from "../utils/time";
+
+import { toHTML } from "discord-markdown";
 
 export default function ArtItem({ date, description, links }: Artwork) {
     description = toHTML(description, { escapeHTML: false }) + "<br/>";

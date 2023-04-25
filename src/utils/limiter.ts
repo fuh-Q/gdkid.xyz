@@ -1,9 +1,12 @@
-import type { NextApiRequest } from "next";
+import type { IncomingMessage } from "http";
+import type { GetServerSidePropsContext } from "next";
+
+type Request = IncomingMessage & { cookies: Partial<{ [key: string]: string }> };
 
 type LimiterOptions = {
     rate: number;
     per: number;
-    keyGen: (r: NextApiRequest) => string;
+    keyGen: (r: Request) => string;
 };
 
 class Bucket {
@@ -63,7 +66,7 @@ class Bucket {
 export class LockoutLimiter {
     rate: number;
     per: number;
-    private _keyGen: (r: NextApiRequest) => string;
+    private _keyGen: (r: Request) => string;
     private _mapping: { [key: string]: Bucket };
 
     constructor(options: LimiterOptions) {
@@ -74,12 +77,12 @@ export class LockoutLimiter {
         this._mapping = {};
     }
 
-    isRateLimited(r: NextApiRequest): boolean {
+    isRateLimited(r: Request): boolean {
         const bucket = this.getBucket(r);
         return bucket.isExhausted();
     }
 
-    getBucket(r: NextApiRequest): Bucket {
+    getBucket(r: Request): Bucket {
         const key = this._keyGen(r);
         if (!this._mapping[key]) {
             this._mapping[key] = new Bucket(this.rate, this.per);
@@ -100,6 +103,6 @@ export function getNewDefaultLimiter() {
     return new LockoutLimiter({
         rate: 3,
         per: 2,
-        keyGen: (r: NextApiRequest) => r.socket.remoteAddress || "",
+        keyGen: (r: Request) => r.socket.remoteAddress || "",
     });
 }

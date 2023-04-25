@@ -1,55 +1,40 @@
-import BackArrow from "../components/BackArrow";
-import Footer from "../components/Footer";
 import ArtItem from "../components/ArtItem";
-import type { Artwork, RawArtwork } from "../types/Artwork";
-
-import Head from "next/head";
+import type Artwork from "../types/Artwork";
+import Metadata from "../components/Metadata";
+import SitePage from "../components/SitePage";
+import items from "../../public/data/artwork.json" assert { type: "json" };
 
 import { v4 as uuidv4 } from "uuid";
 
-export default function ArtWork({ items }: { items: RawArtwork[] }) {
+function deserializeArtworks(): Artwork[] {
     const handleDescription = (d?: string | string[]): string => {
         const s = d ?? "";
         return typeof s === "string" ? s : s.join(" ");
     };
 
-    const works: Artwork[] = items.map((item) => {
+    return items.map((item) => {
         return {
             date: new Date(item.date),
             description: handleDescription(item.description),
             links: item.links,
         };
     });
+}
+
+export default function ArtWork() {
+    const works = deserializeArtworks();
 
     return (
         <>
-            <Head>
-                <title>artwork</title>
-            </Head>
-            <div className="site-body">
-                <BackArrow />
-                <div className="intro">
-                    <span>stuff that i made</span>
-                </div>
-                <div className="notes artwork">
-                    {works.map((w) => (
-                        <li key={uuidv4()}>
-                            <ArtItem date={w.date} description={w.description} links={w.links} />
-                        </li>
-                    ))}
-                </div>
-                <Footer />
-            </div>
+            <Metadata title="artwork" ogDescription="things i take pride in" />
+
+            <SitePage className="notes artwork" pageName="stuff that i made">
+                {works.map((w) => (
+                    <li key={uuidv4()}>
+                        <ArtItem date={w.date} description={w.description} links={w.links} />
+                    </li>
+                ))}
+            </SitePage>
         </>
     );
-}
-
-export async function getStaticProps() {
-    const req = await fetch("http://localhost:3000/data/artwork.json");
-    const items: RawArtwork[] = await req.json();
-
-    return {
-        props: { items },
-        revalidate: 15,
-    };
 }

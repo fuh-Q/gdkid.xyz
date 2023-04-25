@@ -1,4 +1,5 @@
 import type LetterProps from "../types/Letter";
+
 import Link from "next/link";
 
 export default function LetterButton({ full, redirect, preceding = false, newTab = false }: LetterProps) {
