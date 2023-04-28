@@ -63,5 +63,7 @@
     color: rgba(var(--red));
     filter: drop-shadow(0 0 3px rgba(var(--red)));
 
-    border-bottom: 2px ridge rgba(var(--red));
+    &.hasNote {
+        border-bottom: 2px ridge rgba(var(--red));
+    }
 }
