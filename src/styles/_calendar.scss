@@ -7,9 +7,9 @@
     background: none;
     border: none;
     padding: 0px;
-    // cursor: none;
 
     &:hover {
+        // cursor: none;
         cursor: pointer;
         svg {
             filter: drop-shadow(0 0 6px rgba(var(--green)));
@@ -57,26 +57,11 @@
     }
 }
 
-.calendarDay {
-    &::before {
-        content: "";
-        visibility: hidden;
-    }
+.calendarDay.marked {
+    position: relative;
+    white-space: nowrap;
+    color: rgba(var(--red));
+    filter: drop-shadow(0 0 3px rgba(var(--red)));
 
-    &.marked {
-        white-space: nowrap;
-        color: rgba(var(--red));
-        filter: drop-shadow(0 0 3px rgba(var(--red)));
-
-        &.hasNote::before {
-            content: "";
-            position: absolute;
-            border-bottom: 2px ridge rgba(var(--red));
-            top: 0;
-            left: 25%;
-            width: 50%;
-            height: 90%;
-            visibility: initial;
-        }
-    }
+    border-bottom: 2px ridge rgba(var(--red));
 }
