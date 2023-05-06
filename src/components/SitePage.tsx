@@ -3,12 +3,12 @@ import Footer from "./Footer";
 import Link from "next/link";
 import { ReactNode } from "react";
 
-type SitePageProps = {
+interface SitePageProps {
     pageName: string;
     className?: string;
     backTo?: string;
     children?: ReactNode;
-};
+}
 
 function BackArrow({ href }: { href?: string }) {
     return (
