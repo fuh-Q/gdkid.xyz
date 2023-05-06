@@ -14,13 +14,11 @@ export default function Bots() {
             />
 
             <SitePage className="bots" pageName="discord bots<br/>(click the cards to invite!)">
-                {items.map((item) => {
-                    return (
-                        <li key={uuidv4()}>
-                            <BotCard name={item.name} description={item.description} inviteUrl={item.inviteUrl} />
-                        </li>
-                    );
-                })}
+                {items.map((item) => (
+                    <li key={uuidv4()}>
+                        <BotCard name={item.name} description={item.description} inviteUrl={item.inviteUrl} />
+                    </li>
+                ))}
                 <li>
                     <BotCard name="Soon™" description="I'll probably add more stuff in the future..." />
                 </li>
