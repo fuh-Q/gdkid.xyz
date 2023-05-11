@@ -9,7 +9,9 @@ import { useState } from "react";
 import type { MouseEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-type YearCache = { [key: number]: Scream[] };
+interface YearCache {
+    [key: number]: Scream[];
+}
 
 function deserializeScreamDate(data: RawScream[]): Scream[] {
     return data.map((item) => {
