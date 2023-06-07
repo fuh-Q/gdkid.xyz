@@ -107,13 +107,7 @@ export default function Calendar({ data }: { data: RawScream[] | null }) {
             />
 
             <SitePage pageName="days my parents yelled at me<br/>(since feb. 2023)" backTo="/idk">
-                <CalendarContent
-                    tracking={tracking}
-                    yearCache={yearCache}
-                    inStartBounds={inStartBounds}
-                    inEndBounds={inEndBounds}
-                    arrowClickHandler={arrowClickHandler}
-                />
+                <CalendarContent {...{ tracking, yearCache, inStartBounds, inEndBounds, arrowClickHandler }} />
 
                 <div className="notes">
                     {notedMarks.map((m) => (
