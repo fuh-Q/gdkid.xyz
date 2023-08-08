@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const thisYear = new Date().getFullYear();
     const arg = !req.query["year"] || typeof req.query["year"] !== "string" ? thisYear : parseInt(req.query["year"]);
 
-    const query = "SELECT * FROM screamdates WHERE EXTRACT(YEAR FROM day) = $1";
+    const query = "SELECT * FROM screamdates WHERE EXTRACT(YEAR FROM day) = $1 ORDER BY day ASC";
     const conn = await pool.connect();
     const data = await conn.query<Scream>(query, [isNaN(arg) ? thisYear : arg]);
     conn.release();
