@@ -25,7 +25,7 @@ function deserializeScreamDate(data: RawScream[]): Scream[] {
 async function fetchYear(year: number, parse: false): Promise<RawScream[] | null>;
 async function fetchYear(year: number, parse: true): Promise<Scream[] | null>;
 async function fetchYear(year: number, parse: boolean): Promise<(Scream[] | RawScream[]) | null> {
-    const req = await fetch(`http://localhost:3000/api/screamdates?year=${year}`);
+    const req = await fetch(`https://gdkid.xyz/api/screamdates?year=${year}`);
     if (req.status == 429) {
         return null;
     }
@@ -61,7 +61,7 @@ export default function Calendar({ data }: { data: RawScream[] | null }) {
 
     function isWithinStartBounds(current: Date) {
         // we only started counting from february, 2023
-        return current.getFullYear() >= 2023 && current.getMonth() > 1;
+        return current.getFullYear() > 2023 || current.getFullYear() == 2023 && current.getMonth() > 1;
     }
 
     function isOutOfEndBounds(current: Date) {
