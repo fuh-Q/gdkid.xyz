@@ -1,6 +1,5 @@
 export interface ImageScrollerProps {
     images: [string, string][];
-    inviteUrl?: string;
 }
 
 export interface Project {
