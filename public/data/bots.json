@@ -1,11 +1,19 @@
 [
   {
-    "name": "Google Classroom",
+    "name": "GDKord",
     "description": [
-      "A bot that posts your Google Classroom assignments to a Discord",
-      "channel. It polls the Classroom API every 10 minutes, which is why it",
-      "may take up to that amount of time for new posts to appear"
+      "my personal theme for Replugged (the client mod),",
+      "it's still very much in the works but i do think these embeds look hella sexy"
     ],
+    "images": [["https://i.vgy.me/qX0hUD.png", "gdkord preview 1"]],
     "inviteUrl": "https://canary.discord.com/api/oauth2/authorize?client_id=988862592468521031&permissions=604490816&scope=bot%20applications.commands"
+  },
+  {
+    "name": "gdkid.xyz",
+    "description": [
+      "this website\n\n",
+      "(yes this counts)"
+    ],
+    "inviteUrl": "https://github.com/fuh-Q/gdkid.xyz"
   }
 ]

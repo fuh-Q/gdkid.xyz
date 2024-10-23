@@ -2,7 +2,6 @@ import type { Note } from "../types/Note";
 import formatDate from "../utils/time";
 
 import { toHTML } from "discord-markdown";
-import { v4 as uuidv4 } from "uuid";
 
 export default function NoteItem({ id, timestamp, includeTime, note }: Note) {
     if (!note) {

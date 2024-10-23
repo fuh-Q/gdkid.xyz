@@ -1,9 +1,10 @@
-import ArtItem from "../components/ArtItem";
 import type Artwork from "../types/Artwork";
 import Metadata from "../components/Metadata";
-import SitePage from "../components/SitePage";
+import { SitePage } from "../components/SitePage";
 import items from "../../public/data/artwork.json" assert { type: "json" };
+import { MONTHS } from "../utils/time";
 
+import { toHTML } from "discord-markdown";
 import { v4 as uuidv4 } from "uuid";
 
 function deserializeArtworks(): Artwork[] {
@@ -19,6 +20,22 @@ function deserializeArtworks(): Artwork[] {
             links: item.links,
         };
     });
+}
+
+function ArtItem({ date, description, links }: Artwork) {
+    description = toHTML(description, { escapeHTML: false }) + "<br/>";
+    links.map((link) => (description += `<br/><br/><img alt='image' src='${link}'/>`));
+    const formatted = `${MONTHS[date.getUTCMonth()].slice(0, 3)}. ${date.getUTCDate()} ${date.getUTCFullYear()}`;
+
+    return (
+        <>
+            <hr className="separator" />
+            <div className="note art">
+                <div className="timestamp">{formatted}</div>
+                <div dangerouslySetInnerHTML={{ __html: description }} />
+            </div>
+        </>
+    );
 }
 
 export default function ArtWork() {

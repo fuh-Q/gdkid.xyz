@@ -1,15 +1,14 @@
-import Metadata from "../components/Metadata";
 import NoteItem from "../components/NoteItem";
-import SimplePage from "../components/SimplePage";
-import SitePage from "../components/SitePage";
+import Metadata from "../components/Metadata";
+import { SimplePage, SitePage } from "../components/SitePage";
 import type { RawNote, Note } from "../types/Note";
+
+import pool from "../utils/db";
+import { getNewDefaultLimiter } from "../utils/limiter";
+const limiter = getNewDefaultLimiter();
 
 import { useEffect } from "react";
 import type { GetServerSidePropsContext } from "next";
-
-import { getNewDefaultLimiter } from "../utils/limiter";
-import pool from "../utils/db";
-const limiter = getNewDefaultLimiter();
 
 function deserializeNotes(raw: RawNote[]): Note[] {
     return raw.map((row) => {

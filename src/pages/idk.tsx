@@ -1,6 +1,6 @@
 import { ILink } from "../components/Footer";
 import Metadata from "../components/Metadata";
-import SitePage from "../components/SitePage";
+import { SitePage } from "../components/SitePage";
 
 export default function Idk() {
     return (

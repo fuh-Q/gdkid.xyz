@@ -1,8 +1,7 @@
 import CalendarContent from "../components/Calendar";
 import Metadata from "../components/Metadata";
 import NoteItem from "../components/NoteItem";
-import SimplePage from "../components/SimplePage";
-import SitePage from "../components/SitePage";
+import { SimplePage, SitePage } from "../components/SitePage";
 import type { RawScream, Scream } from "../types/ScreamCalendar";
 
 import { useState } from "react";
@@ -61,7 +60,7 @@ export default function Calendar({ data }: { data: RawScream[] | null }) {
 
     function isWithinStartBounds(current: Date) {
         // we only started counting from february, 2023
-        return current.getFullYear() > 2023 || current.getFullYear() == 2023 && current.getMonth() > 1;
+        return current.getFullYear() > 2023 || (current.getFullYear() == 2023 && current.getMonth() > 1);
     }
 
     function isOutOfEndBounds(current: Date) {

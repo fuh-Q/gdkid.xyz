@@ -1,14 +1,8 @@
 import Footer from "./Footer";
 
+import Head from "next/head";
 import Link from "next/link";
 import { ReactNode } from "react";
-
-interface SitePageProps {
-    pageName: string;
-    className?: string;
-    backTo?: string;
-    children?: ReactNode;
-}
 
 function BackArrow({ href }: { href?: string }) {
     return (
@@ -27,7 +21,14 @@ function BackArrow({ href }: { href?: string }) {
     );
 }
 
-export default function SitePage({ pageName, className, backTo, children }: SitePageProps) {
+interface SitePageProps {
+    pageName: string;
+    className?: string;
+    backTo?: string;
+    children?: ReactNode;
+}
+
+export function SitePage({ pageName, className, backTo, children }: SitePageProps) {
     const content = className ? <div className={className}>{children}</div> : children;
 
     return (
@@ -41,5 +42,21 @@ export default function SitePage({ pageName, className, backTo, children }: Site
 
             <Footer />
         </div>
+    );
+}
+
+interface PageOpts {
+    msg: string;
+    head?: string;
+}
+
+export function SimplePage({ msg, head }: PageOpts) {
+    return (
+        <>
+            <Head>
+                <title>{head || "gdkid"}</title>
+            </Head>
+            <SitePage pageName={msg} />
+        </>
     );
 }

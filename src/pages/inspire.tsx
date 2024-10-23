@@ -1,5 +1,5 @@
 import Metadata from "../components/Metadata";
-import SitePage from "../components/SitePage";
+import { SitePage } from "../components/SitePage";
 
 import Image from "next/image";
 

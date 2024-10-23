@@ -121,6 +121,11 @@ p {
     }
 }
 
+.invis {
+    opacity: 0;
+    transform: scale(0);
+}
+
 .site-body {
     position: relative;
     border: none;

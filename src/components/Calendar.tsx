@@ -89,7 +89,7 @@ function ScreamCal({ year, month, marks }: CalendarProps) {
 
 const LEFT_ARROW = "M12 4L3 12L12 20 M7 12 M20 4L11 12L20 20";
 const RIGHT_ARROW = "M12 20L21 12L12 4 M17 12 M4 4L13 12L4 20";
-function MoveArrow({ direction, invisible, callback }: ArrowProps) {
+export function MoveArrow({ direction, invisible, callback }: ArrowProps) {
     return (
         <button
             id={`${direction}`}

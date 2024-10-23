@@ -30,11 +30,6 @@
 
     color: rgba(var(--foreground));
 
-    .invis {
-        opacity: 0;
-        transform: scale(0);
-    }
-
     .calendar-tip span {
         font-weight: bold;
         border-bottom: 1px ridge rgba(var(--red));
