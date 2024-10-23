@@ -1,0 +1,96 @@
+// ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ >> >
+// ┣─> Projects
+// ╰───────────────────────────────────── >> >
+
+@media screen and (max-width: 750px) {
+    .bots {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+}
+
+.bots {
+    width: 75%;
+    margin-top: 2.5em;
+    margin-bottom: 40px;
+
+    display: grid;
+    align-items: stretch;
+    justify-items: stretch;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 10px;
+    row-gap: 40px;
+}
+
+.bot {
+    text-align: center;
+    color: rgba(var(--green));
+    border-radius: 10px;
+    background-color: rgba(var(--foreground), 0.035);
+    box-shadow: 0 0 50px rgba(var(--black)), inset 0 0 15px rgba(var(--black));
+    height: 100%;
+    padding: 20px 20px 0 20px;
+    margin: 5px 5px 0 5px;
+
+    font-size: 1.5em;
+
+    transition: 0.2s ease-in-out;
+
+    .bot-name {
+        color: rgba(var(--green));
+    }
+
+    .bot-description {
+        color: rgba(var(--foreground));
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 0.75em;
+    }
+
+    &.invitable:hover {
+        background: transparent;
+        cursor: pointer;
+
+        .bot-name,
+        .bot-description {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+
+.botlink {
+    cursor: default;
+    text-decoration: none;
+}
+
+.bot-preview-image-container {
+    display: block;
+
+    .bot-preview-image {
+        object-fit: contain !important;
+        position: relative !important;
+
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+
+.bot-preview-arrows {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 30px;
+
+    margin-top: 10px;
+
+    span {
+        font-size: large;
+        text-align: center;
+        text-wrap: nowrap;
+        user-select: none;
+        color: rgba(var(--foreground));
+    }
+}
