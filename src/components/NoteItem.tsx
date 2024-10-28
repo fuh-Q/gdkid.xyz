@@ -20,7 +20,7 @@ export default function NoteItem({ id, timestamp, includeTime, note }: Note) {
                         <i>{id ? `# ${id}` : ""}</i>
                     </span>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: toHTML(note) }} />
+                <div dangerouslySetInnerHTML={{ __html: toHTML(note, { embed: true }) }} />
             </div>
         </>
     );
