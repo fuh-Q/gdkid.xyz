@@ -1,5 +1,4 @@
 import type { IncomingMessage } from "http";
-import type { GetServerSidePropsContext } from "next";
 
 type Request = IncomingMessage & { cookies: Partial<{ [key: string]: string }> };
 
