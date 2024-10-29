@@ -26,12 +26,9 @@ function urlHashHandler() {
 
     const elem = document.getElementById(noteId);
     if (!elem) return;
+
     elem.classList.add("flash");
-    setTimeout(() => {
-        const spoof = document.getElementById("" + (Number.parseInt(noteId) + 3));
-        if (spoof) spoof.scrollIntoView();
-        else window.scrollTo(0, 0);
-    });
+    setTimeout(() => elem.scrollIntoView({ block: "center" }));
 }
 
 export default function NoteBook({ rawRows }: { rawRows: RawNote[] | null }) {
