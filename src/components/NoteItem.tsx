@@ -13,7 +13,7 @@ export default function NoteItem({ id, timestamp, includeTime, note }: Note) {
     return (
         <>
             <hr className="separator" />
-            <div id={`${id || undefined}`} className="note">
+            <div id={`${id || ""}`} className="note">
                 <div className="timestamp">
                     {formatted}
                     <span className="inline-note-id">
