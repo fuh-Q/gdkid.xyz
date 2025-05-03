@@ -1,5 +1,5 @@
 export default interface Artwork {
-    date: Date;
+    date: string;
     description: string;
     links: string[];
 }

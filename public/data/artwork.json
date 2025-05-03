@@ -1,36 +1,64 @@
 [
   {
-    "date": "2023-04-04",
+    "date": "mar 25, 2025",
+    "description": "brooklyn-queens expressway, new york city (The BQE)",
+    "links":["/art-hosting/bqe.JPG"]
+  },
+  {
+    "date": "jan 6, 2025",
+    "description": [
+      "a dance of stop flags\n\n",
+      "with the new and incoming on the left,\n",
+      "and the parting legacy on the right"
+    ],
+    "links": ["/art-hosting/nwtb.JPG"]
+  },
+  {
+    "date": "nov 15, 2024",
+    "description": "san francisco poop map",
+    "links": ["/art-hosting/crapmap.JPG"]
+  },
+  {
+    "date": "dec 22, 2023",
+    "description": "skull emoji 💀",
+    "links": ["/art-hosting/skull.JPG"]
+  },
+  {
+    "date": "apr 4, 2023",
     "description": [
       "no u\n\n",
       "tbh it could've been a lot better (some of the fingers look kinda crusty lol)\n",
       "but it's 3am and i can't be bothered ¯\\_(ツ)_/¯"
     ],
-    "links": ["https://i.vgy.me/6TwJXx.jpg"]
+    "links": ["/art-hosting/no-u.JPG"]
   },
   {
-    "date": "2023-03-27",
+    "date": "mar 27, 2023",
     "description": "couldn't sleep and this helped pass the time",
-    "links": ["https://i.vgy.me/hnuC1U.jpg"]
+    "links": ["/art-hosting/fu.JPG"]
   },
   {
-    "date": "2022-12-05",
+    "date": "dec 5, 2022",
     "description": ["holy shit\n\n", "(hand drawn for a school project)"],
-    "links": ["https://i.vgy.me/DRfMQW.png"]
+    "links": ["/art-hosting/holy-shit.png"]
   },
   {
-    "date": "2022-11-09",
-    "description": "my phone lockscreen",
-    "links": ["https://i.vgy.me/zzCvKn.png"]
+    "date": "nov 9, 2022 | oct 30, 2022 | oct 23, 2022",
+    "description": "wallpaper collection",
+    "links": [
+      "/art-hosting/phone-wallpaper.png",
+      "/art-hosting/lockscreen.png",
+      "/art-hosting/wallpaper.png"
+    ]
   },
   {
-    "date": "2022-10-30",
-    "description": "my desktop lockscreen",
-    "links": ["https://i.vgy.me/3sSMeG.png"]
-  },
-  {
-    "date": "2022-10-23",
-    "description": "my desktop wallpaper",
-    "links": ["https://i.vgy.me/ffvdaV.png"]
+    "date": "2022 -> present",
+    "description": "pfp collection",
+    "links": [
+      "/art-hosting/new-blurple-pfp.png",
+      "/art-hosting/new-blurple-pfp-bot.png",
+      "/art-hosting/new-new-blurple-pfp-bot.png",
+      "/art-hosting/fingergun.png"
+    ]
   }
 ]
