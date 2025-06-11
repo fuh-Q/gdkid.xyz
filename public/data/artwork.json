@@ -1,8 +1,13 @@
 [
   {
+    "date": "jun 10, 2025",
+    "description": "the jewel at singapore's changi airport 🇸🇬",
+    "links": ["/art-hosting/changi.jpg"]
+  },
+  {
     "date": "mar 25, 2025",
     "description": "brooklyn-queens expressway, new york city (The BQE)",
-    "links":["/art-hosting/bqe.JPG"]
+    "links": ["/art-hosting/bqe.JPG"]
   },
   {
     "date": "jan 6, 2025",
